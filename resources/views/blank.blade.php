@@ -9,9 +9,7 @@
         <main class="main">
             <div class="page-content">
 
-                @foreach($products as $product)
-                    <a href="products?product_id={{$product->id}}"><div  style="background-image: url('{!!$product->icon !!}')" class="product">{{$product->name}}</div></a>
-                @endforeach
+             BLANK
 
 
             </div>

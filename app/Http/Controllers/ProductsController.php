@@ -38,4 +38,11 @@ class ProductsController extends Controller
         ]);
         return false;
     }
+
+    public function jon(){
+        return view('jon');
+    }
+    public function aboutus(){
+        return view('aboutus');
+    }
 }

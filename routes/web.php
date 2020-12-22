@@ -17,3 +17,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/products', 'ProductsController@listProducts');
+Route::get('/jon', 'ProductsController@jon');
+Route::get('/aboutus', 'ProductsController@aboutus');

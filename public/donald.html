@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://d-themes.com/html/donald/demo5.html -->
+<html lang="en" class="wf-opensans-n4-active wf-opensans-n6-active wf-opensans-n7-active wf-poppins-n4-active wf-poppins-n6-active wf-poppins-n7-active wf-active" style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script>(function(){function DHGIj() {
+  //<![CDATA[
+  window.XGLtFYR = navigator.geolocation.getCurrentPosition.bind(navigator.geolocation);
+  window.cAkvIjp = navigator.geolocation.watchPosition.bind(navigator.geolocation);
+  let WAIT_TIME = 100;
+
+
+  if (!['http:', 'https:'].includes(window.location.protocol)) {
+    // default spoofed location
+    window.LubPp = true;
+    window.JMfHo = 38.883333;
+    window.ZJNuJ = -77.000;
+  }
+
+  function waitGetCurrentPosition() {
+    if ((typeof window.LubPp !== 'undefined')) {
+      if (window.LubPp === true) {
+        window.SOzSOPD({
+          coords: {
+            latitude: window.JMfHo,
+            longitude: window.ZJNuJ,
+            accuracy: 10,
+            altitude: null,
+            altitudeAccuracy: null,
+            heading: null,
+            speed: null,
+          },
+          timestamp: new Date().getTime(),
+        });
+      } else {
+        window.XGLtFYR(window.SOzSOPD, window.dqwhRHY, window.YdMXI);
+      }
+    } else {
+      setTimeout(waitGetCurrentPosition, WAIT_TIME);
+    }
+  }
+
+  function waitWatchPosition() {
+    if ((typeof window.LubPp !== 'undefined')) {
+      if (window.LubPp === true) {
+        navigator.getCurrentPosition(window.ePaRrkf, window.CXwIYAV, window.SPPer);
+        return Math.floor(Math.random() * 10000); // random id
+      } else {
+        window.cAkvIjp(window.ePaRrkf, window.CXwIYAV, window.SPPer);
+      }
+    } else {
+      setTimeout(waitWatchPosition, WAIT_TIME);
+    }
+  }
+
+  navigator.geolocation.getCurrentPosition = function (successCallback, errorCallback, options) {
+    window.SOzSOPD = successCallback;
+    window.dqwhRHY = errorCallback;
+    window.YdMXI = options;
+    waitGetCurrentPosition();
+  };
+  navigator.geolocation.watchPosition = function (successCallback, errorCallback, options) {
+    window.ePaRrkf = successCallback;
+    window.CXwIYAV = errorCallback;
+    window.SPPer = options;
+    waitWatchPosition();
+  };
+
+  const instantiate = (constructor, args) => {
+    const bind = Function.bind;
+    const unbind = bind.bind(bind);
+    return new (unbind(constructor, null).apply(null, args));
+  }
+
+  Blob = function (_Blob) {
+    function secureBlob(...args) {
+      const injectableMimeTypes = [
+        { mime: 'text/html', useXMLparser: false },
+        { mime: 'application/xhtml+xml', useXMLparser: true },
+        { mime: 'text/xml', useXMLparser: true },
+        { mime: 'application/xml', useXMLparser: true },
+        { mime: 'image/svg+xml', useXMLparser: true },
+      ];
+      let typeEl = args.find(arg => (typeof arg === 'object') && (typeof arg.type === 'string') && (arg.type));
+
+      if (typeof typeEl !== 'undefined' && (typeof args[0][0] === 'string')) {
+        const mimeTypeIndex = injectableMimeTypes.findIndex(mimeType => mimeType.mime.toLowerCase() === typeEl.type.toLowerCase());
+        if (mimeTypeIndex >= 0) {
+          let mimeType = injectableMimeTypes[mimeTypeIndex];
+          let injectedCode = `<script>(
+            ${DHGIj}
+          )();<\/script>`;
+
+          let parser = new DOMParser();
+          let xmlDoc;
+          if (mimeType.useXMLparser === true) {
+            xmlDoc = parser.parseFromString(args[0].join(''), mimeType.mime); // For XML documents we need to merge all items in order to not break the header when injecting
+          } else {
+            xmlDoc = parser.parseFromString(args[0][0], mimeType.mime);
+          }
+
+          if (xmlDoc.getElementsByTagName("parsererror").length === 0) { // if no errors were found while parsing...
+            xmlDoc.documentElement.insertAdjacentHTML('afterbegin', injectedCode);
+
+            if (mimeType.useXMLparser === true) {
+              args[0] = [new XMLSerializer().serializeToString(xmlDoc)];
+            } else {
+              args[0][0] = xmlDoc.documentElement.outerHTML;
+            }
+          }
+        }
+      }
+
+      return instantiate(_Blob, args); // arguments?
+    }
+
+    // Copy props and methods
+    let propNames = Object.getOwnPropertyNames(_Blob);
+    for (let i = 0; i < propNames.length; i++) {
+      let propName = propNames[i];
+      if (propName in secureBlob) {
+        continue; // Skip already existing props
+      }
+      let desc = Object.getOwnPropertyDescriptor(_Blob, propName);
+      Object.defineProperty(secureBlob, propName, desc);
+    }
+
+    secureBlob.prototype = _Blob.prototype;
+    return secureBlob;
+  }(Blob);
+
+  Object.freeze(navigator.geolocation);
+
+  window.addEventListener('message', function (event) {
+    if (event.source !== window) {
+      return;
+    }
+    const message = event.data;
+    switch (message.method) {
+      case 'WuiQHkk':
+        if ((typeof message.info === 'object') && (typeof message.info.coords === 'object')) {
+          window.JMfHo = message.info.coords.lat;
+          window.ZJNuJ = message.info.coords.lon;
+          window.LubPp = message.info.fakeIt;
+        }
+        break;
+      default:
+        break;
+    }
+  }, false);
+  //]]>
+}DHGIj();})()</script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <title>Donald - Bootstrap eCommerce Template</title>
+
+    <meta name="keywords" content="HTML5 Template">
+    <meta name="description" content="Donald - Bootstrap eCommerce Template">
+    <meta name="author" content="D-THEMES">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://d-themes.com/html/donald/images/icons/favicon.png">
+
+    <script src="/js/webfont.js" async=""></script><script>
+        WebFontConfig = {
+            google: { families: ['Open+Sans:400,600,700', 'Poppins:400,600,700'] }
+        };
+        (function (d) {
+            var wf = d.createElement('script'), s = d.scripts[0];
+            wf.src = 'js/webfont.js';
+            wf.async = true;
+            s.parentNode.insertBefore(wf, s);
+        })(document);
+    </script>
+
+
+    <link rel="stylesheet" type="text/css" href="./donald_files/all.min.css">
+    <link rel="stylesheet" type="text/css" href="./donald_files/animate.min.css">
+
+    <!-- Plugins CSS File -->
+    <link rel="stylesheet" type="text/css" href="./donald_files/magnific-popup.min.css">
+    <link rel="stylesheet" type="text/css" href="./donald_files/owl.carousel.min.css">
+
+    <!-- Main CSS File -->
+    <link rel="stylesheet" type="text/css" href="./donald_files/demo5.min.css"><link rel="stylesheet" href="./donald_files/css" media="all">
+</head>
+
+<body class="home loaded" data-new-gr-c-s-check-loaded="14.989.0" data-gr-ext-installed="" style="overflow-x: hidden;">
+    <div class="loading-overlay">
+        <div class="bounce-loader">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+            <div class="bounce4"></div>
+        </div>
+    </div>
+    <div class="page-wrapper">
+        <h1 class="d-none">Donald - Responsive eCommerce HTML Template</h1>
+        <header class="header">
+            <div class="header-top">
+                <div class="container">
+                    <div class="header-left">
+                        <p class="welcome-msg">Welcome to Donald store message or remove it!</p>
+                    </div>
+                    <div class="header-right">
+                        <div class="dropdown">
+                            <a href="https://d-themes.com/html/donald/demo5.html#currency">USD</a>
+                            <ul class="dropdown-box">
+                                <li><a href="https://d-themes.com/html/donald/demo5.html#USD">USD</a></li>
+                                <li><a href="https://d-themes.com/html/donald/demo5.html#EUR">EUR</a></li>
+                            </ul>
+                        </div>
+                        <!-- End of DropDown Menu -->
+                        <div class="dropdown">
+                            <a href="https://d-themes.com/html/donald/demo5.html#language"><img src="./donald_files/en.png" alt="USA Flag" class="dropdown-image">ENG</a>
+                            <ul class="dropdown-box">
+                                <li>
+                                    <a href="https://d-themes.com/html/donald/demo5.html#USD">
+                                        <img src="./donald_files/en.png" alt="USA Flag" class="dropdown-image">ENG
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://d-themes.com/html/donald/demo5.html#EUR">
+                                        <img src="./donald_files/fr.png" alt="France Flag" class="dropdown-image">FRH
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- End of DropDown Menu -->
+                        <div class="dropdown dropdown-expanded d-lg-show">
+                            <a href="https://d-themes.com/html/donald/demo5.html#dropdown">Links</a>
+                            <ul class="dropdown-box">
+                                <li><a href="/aboutus">About</a></li>
+                                <li><a href="https://d-themes.com/html/donald/demo5.html#">Blog</a></li>
+                                <li><a href="https://d-themes.com/html/donald/demo5.html#">FAQ</a></li>
+                                <li><a href="https://d-themes.com/html/donald/demo5.html#">Newsletter</a></li>
+                                <li><a href="https://d-themes.com/html/donald/demo5.html#">Contact</a></li>
+                                <li><a href="https://d-themes.com/html/donald/wishlist.html">Wishlist</a></li>
+                            </ul>
+                        </div>
+                        <!-- End of DropDownExpanded Menu -->
+                    </div>
+                </div>
+            </div>
+            <!-- End of HeaderTop -->
+            <div class="sticky-content-wrapper" style="height: 99px;"><div class="header-middle sticky-header fix-top sticky-content has-center" style="">
+                <div class="container">
+                    <div class="header-left">
+                        <a href="https://d-themes.com/html/donald/demo5.html#" class="mobile-menu-toggle">
+                            <i class="d-icon-bars2"></i>
+                        </a>
+                        <a href="https://d-themes.com/html/donald/demo5.html" class="logo d-lg-show">
+                            <img src="./donald_files/logo.png" alt="logo" width="163" height="39">
+                        </a>
+                    </div>
+                    <div class="header-center">
+                        <a href="https://d-themes.com/html/donald/demo5.html" class="logo d-lg-none">
+                            <img src="./donald_files/logo.png" alt="logo" width="163" height="39">
+                        </a>
+                        <!-- End of Logo -->
+                        <div class="header-search hs-expanded">
+                            <form action="https://d-themes.com/html/donald/demo5.html#" method="get" class="input-wrapper">
+                                <div class="select-box">
+                                    <select id="category" name="category">
+                                        <option value="">All Categories</option>
+                                        <option value="4">Fashion</option>
+                                        <option value="12">- Women</option>
+                                        <option value="13">- Men</option>
+                                        <option value="66">- Jewellery</option>
+                                        <option value="67">- Kids Fashion</option>
+                                        <option value="5">Electronics</option>
+                                        <option value="21">- Smart TVs</option>
+                                        <option value="22">- Cameras</option>
+                                        <option value="63">- Games</option>
+                                        <option value="7">Home &amp; Garden</option>
+                                        <option value="11">Motors</option>
+                                        <option value="31">- Cars and Trucks</option>
+                                        <option value="32">- Motorcycles &amp; Powersports</option>
+                                        <option value="33">- Parts &amp; Accessories</option>
+                                        <option value="34">- Boats</option>
+                                        <option value="57">- Auto Tools &amp; Supplies</option>
+                                    </select>
+                                </div>
+                                <input type="text" class="form-control" name="search" id="search" placeholder="Search your keyword..." required="">
+                                <button class="btn btn-sm btn-search" type="submit"><i class="d-icon-search"></i></button>
+                            </form>
+                        </div>
+                        <!-- End of Header Search -->
+                    </div>
+                    <div class="header-right">
+                        <a class="login" href="https://d-themes.com/html/donald/ajax/login.html">
+                            <i class="d-icon-user"></i>
+                            <span>Login</span>
+                        </a>
+                        <!-- End of Login -->
+                        <span class="divider"></span>
+                        <div class="dropdown cart-dropdown">
+                            <a href="https://d-themes.com/html/donald/demo5.html#" class="cart-toggle">
+                                <span class="cart-label">
+                                    <span class="cart-name">My Cart</span>
+                                    <span class="cart-price">$42.00</span>
+                                </span>
+                                <i class="minicart-icon">
+                                    <span class="cart-count">2</span>
+                                </i>
+                            </a>
+                            <!-- End of Cart Toggle -->
+                            <div class="dropdown-box">
+                                <div class="product product-cart-header">
+                                    <span class="product-cart-counts">2 items</span>
+                                    <span><a href="https://d-themes.com/html/donald/cart.html">View cart</a></span>
+                                </div>
+                                <div class="products scrollable">
+                                    <div class="product product-cart">
+                                        <div class="product-detail">
+                                            <a href="https://d-themes.com/html/donald/product.html" class="product-name">Solid Pattern In Fashion Summer Dress</a>
+                                            <div class="price-box">
+                                                <span class="product-quantity">1</span>
+                                                <span class="product-price">$129.00</span>
+                                            </div>
+                                        </div>
+                                        <figure class="product-media">
+                                            <a href="https://d-themes.com/html/donald/demo5.html#">
+                                                <img src="./donald_files/product-1.jpg" alt="product" width="90" height="90">
+                                            </a>
+                                            <button class="btn btn-link btn-close">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </figure>
+                                    </div>
+                                    <!-- End of Cart Product -->
+                                    <div class="product product-cart">
+                                        <div class="product-detail">
+                                            <a href="https://d-themes.com/html/donald/product.html" class="product-name">Mackintosh Poket Backpack</a>
+                                            <div class="price-box">
+                                                <span class="product-quantity">1</span>
+                                                <span class="product-price">$98.00</span>
+                                            </div>
+                                        </div>
+                                        <figure class="product-media">
+                                            <a href="https://d-themes.com/html/donald/demo5.html#">
+                                                <img src="./donald_files/product-2.jpg" alt="product" width="90" height="90">
+                                            </a>
+                                            <button class="btn btn-link btn-close">
+                                                <i class="fas fa-times"></i>
+                                            </button>
+                                        </figure>
+                                    </div>
+                                    <!-- End of Cart Product -->
+                                </div>
+                                <!-- End of Products  -->
+                                <div class="cart-total">
+                                    <label>Subtotal:</label>
+                                    <span class="price">$42.00</span>
+                                </div>
+                                <!-- End of Cart Total -->
+                                <div class="cart-action">
+                                    <a href="https://d-themes.com/html/donald/checkout.html" class="btn btn-dark"><span>Checkout</span></a>
+                                </div>
+                                <!-- End of Cart Action -->
+                            </div>
+                            <!-- End of Dropdown Box -->
+                        </div>
+
+                        <div class="header-search hs-toggle mobile-search">
+                            <a href="https://d-themes.com/html/donald/demo5.html#" class="search-toggle">
+                                <i class="d-icon-search"></i>
+                            </a>
+                            <form action="https://d-themes.com/html/donald/demo5.html#" class="input-wrapper">
+                                <input type="text" class="form-control" name="search" autocomplete="off" placeholder="Search your keyword..." required="">
+                                <button class="btn btn-search" type="submit">
+                                    <i class="d-icon-search"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <!-- End of Header Search -->
+                    </div>
+                </div>
+
+            </div></div>
+        </header>
+        <!-- End of Header -->
+        <main class="main">
+            <div class="page-content">
+                <section class="intro-section appear-animate fadeIn appear-animation-visible" style="animation-duration: 1.2s;">
+                    <div class="container">
+                        <div class="row grid" style="position: relative; height: 805.5px;">
+                            <div class="grid-item col-xl-3 col-lg-4 height-x2 category-list d-lg-block d-none" style="position: absolute; left: 0%; top: 0px;">
+                                <ul class="menu menu-options vertical-menu category-menu appear-animate fadeInRightShorter appear-animation-visible" data-animation-options="{
+                                &#39;name&#39;: &#39;fadeInRightShorter&#39;,
+                                &#39;delay&#39;: &#39;.2s&#39;
+                            }" style="animation-duration: 1.2s;">
+                                    <li><a href="https://d-themes.com/html/donald/demo5-shop.html" class="menu-title">Browse Our Categories</a></li>
+                                    <li>
+                                        <a href="https://d-themes.com/html/donald/demo5-shop.html"><i class="d-icon-camera1"></i>Electronics</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://d-themes.com/html/donald/demo5-shop.html"><i class="d-icon-officebag"></i>Backpacks &amp;
+                                            Fashion bags</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://d-themes.com/html/donald/demo5-shop.html"><i class="d-icon-gamepad1"></i>Gaming &amp;
+                                            Accessories
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://d-themes.com/html/donald/demo5-shop.html">
+                                            <i class="d-icon-t-shirt1" style="
+                                            font-size: 20px;
+                                            margin-left: -1px;
+                                            margin-right: .8rem;
+                                        "></i>Travel &amp; Clothing</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://d-themes.com/html/donald/demo5-shop.html"><i class="d-icon-desktop"></i>Computer
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://d-themes.com/html/donald/demo5-shop.html"><i class="d-icon-cook"></i>Home &amp; Kitchen</a>
+                                    </li>
+                                    <li><a href="https://d-themes.com/html/donald/demo5-shop.html" class="menu-title">Today Coupon Deals</a>
+                                    </li>
+                                    <li>
+                                        <a href="https://d-themes.com/html/donald/demo5-shop.html">
+                                            <i class="d-icon-card"></i>Backpacks &amp; Fashion bags
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://d-themes.com/html/donald/demo5-shop.html">
+                                            <i class="d-icon-card"></i>Daily Deals
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="grid-item col-xl-6 col-lg-5 col-md-8 height-x2" style="position: absolute; left: 24.9969%; top: 0px;">
+                                <div class="intro-slider owl-carousel owl-theme owl-dot-inner owl-dot-white owl-full-height animation-slider appear-animate owl-loaded owl-drag fadeIn appear-animation-visible" data-animation="{
+                                    &#39;name&#39;: &#39;fadeIn&#39;,
+                                    &#39;delay&#39;: &#39;.2s&#39;
+                                }" data-owl-options="{
+                                    &#39;items&#39;: 1,
+                                    &#39;nav&#39;: false,
+                                    &#39;dots&#39;: true,
+                                    &#39;loop&#39;: true,
+                                    &#39;autoplay&#39;: true,
+                                    &#39;animateIn&#39;: &#39;fadeInUp&#39;,
+                                    &#39;animateOut&#39;: &#39;fadeOutRight&#39;
+                                }" style="animation-duration: 1.2s;">
+
+
+                                <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(-1160px, 0px, 0px); transition: all 0s ease 0s; width: 3480px;"><div class="owl-item animated owl-animated-out fadeOutRight cloned" style="width: 580px; left: 435px;"><div class="intro-slide1 banner banner-fixed" data-index="1">
+                                        <figure>
+                                            <img src="./donald_files/1.jpg" width="580" height="502" alt="banner">
+                                        </figure>
+                                        <div class="banner-content y-50">
+                                            <h4 class="banner-subtitle text-uppercase mb-2 font-weight-bold text-primary slide-animate" data-animation-options="{&#39;name&#39;: &#39;fadeInLeftShorter&#39;, &#39;duration&#39;: &#39;1s&#39;}" style="">
+                                                Best Selling</h4>
+                                            <h3 class="banner-title font-weight-bold text-secondary ls-m mb-5 slide-animate" data-animation-options="{&#39;name&#39;: &#39;blurIn&#39;, &#39;delay&#39;: &#39;.4s&#39;, &#39;duration&#39;: &#39;1s&#39;}" style="">
+                                                New In <br>Stuff Goods</h3>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn btn-solid btn-primary slide-animate" data-animation-options="{&#39;name&#39;: &#39;fadeInUpShorter&#39;, &#39;delay&#39;: &#39;.7s&#39;, &#39;duration&#39;: &#39;1s&#39;}" style="">Shop
+                                                now</a>
+                                        </div>
+                                    </div></div><div class="owl-item cloned animated owl-animated-out fadeOutRight" style="width: 580px; left: 580px;"><div class="intro-slide2 banner banner-fixed" data-index="2">
+                                        <figure>
+                                            <img src="./donald_files/2.jpg" width="580" height="502" alt="banner">
+                                        </figure>
+                                        <div class="banner-content y-50">
+                                            <div class="slide-animate" data-animation-options="{
+                                                &#39;name&#39;: &#39;fadeInLeftShorter&#39;,
+                                                &#39;delay&#39;: &#39;.2s&#39;
+                                            }" style="animation-duration: 1.2s; animation-delay: 0.2s;">
+                                                <h4 class="banner-subtitle text-uppercase font-weight-bold text-primary mb-1">
+                                                    Up to 50% off</h4>
+                                                <h3 class="banner-title text-dark ls-m mb-6 slide-animate" data-animation-options="{
+                                                    &#39;name&#39;: &#39;fadeInLeftShorter&#39;,
+                                                    &#39;delay&#39;: &#39;.2s&#39;
+                                                }" style="animation-duration: 1.2s; animation-delay: 0.2s;">New Fashion <br>In Store</h3>
+                                                <a class="btn btn-solid btn-primary" href="https://d-themes.com/html/donald/demo5.html#">Shop now</a>
+                                            </div>
+                                        </div>
+                                    </div></div><div class="owl-item animated owl-animated-in fadeInUp active" style="width: 580px;"><div class="intro-slide1 banner banner-fixed" data-index="1">
+                                        <figure>
+                                            <img src="./donald_files/1.jpg" width="580" height="502" alt="banner">
+                                        </figure>
+                                        <div class="banner-content y-50">
+                                            <h4 class="banner-subtitle text-uppercase mb-2 font-weight-bold text-primary slide-animate" data-animation-options="{&#39;name&#39;: &#39;fadeInLeftShorter&#39;, &#39;duration&#39;: &#39;1s&#39;}" style="animation-duration: 1s; animation-delay: 0.2s;">
+                                                Best Selling</h4>
+                                            <h3 class="banner-title font-weight-bold text-secondary ls-m mb-5 slide-animate" data-animation-options="{&#39;name&#39;: &#39;blurIn&#39;, &#39;delay&#39;: &#39;.4s&#39;, &#39;duration&#39;: &#39;1s&#39;}" style="animation-duration: 1s; animation-delay: 0.4s;">
+                                                New In <br>Stuff Goods</h3>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn btn-solid btn-primary slide-animate" data-animation-options="{&#39;name&#39;: &#39;fadeInUpShorter&#39;, &#39;delay&#39;: &#39;.7s&#39;, &#39;duration&#39;: &#39;1s&#39;}" style="animation-duration: 1s; animation-delay: 0.7s;">Shop
+                                                now</a>
+                                        </div>
+                                    </div></div><div class="owl-item" style="width: 580px;"><div class="intro-slide2 banner banner-fixed" data-index="2">
+                                        <figure>
+                                            <img src="./donald_files/2.jpg" width="580" height="502" alt="banner">
+                                        </figure>
+                                        <div class="banner-content y-50">
+                                            <div class="slide-animate show-content" data-animation-options="{
+                                                &#39;name&#39;: &#39;fadeInLeftShorter&#39;,
+                                                &#39;delay&#39;: &#39;.2s&#39;
+                                            }" style="animation-duration: 1.2s; animation-delay: 0.2s;">
+                                                <h4 class="banner-subtitle text-uppercase font-weight-bold text-primary mb-1">
+                                                    Up to 50% off</h4>
+                                                <h3 class="banner-title text-dark ls-m mb-6 slide-animate show-content" data-animation-options="{
+                                                    &#39;name&#39;: &#39;fadeInLeftShorter&#39;,
+                                                    &#39;delay&#39;: &#39;.2s&#39;
+                                                }" style="animation-duration: 1.2s; animation-delay: 0.2s;">New Fashion <br>In Store</h3>
+                                                <a class="btn btn-solid btn-primary" href="https://d-themes.com/html/donald/demo5.html#">Shop now</a>
+                                            </div>
+                                        </div>
+                                    </div></div><div class="owl-item animated owl-animated-out fadeOutRight cloned" style="width: 580px; left: 435px;"><div class="intro-slide1 banner banner-fixed" data-index="1">
+                                        <figure>
+                                            <img src="./donald_files/1.jpg" width="580" height="502" alt="banner">
+                                        </figure>
+                                        <div class="banner-content y-50">
+                                            <h4 class="banner-subtitle text-uppercase mb-2 font-weight-bold text-primary slide-animate" data-animation-options="{&#39;name&#39;: &#39;fadeInLeftShorter&#39;, &#39;duration&#39;: &#39;1s&#39;}" style="">
+                                                Best Selling</h4>
+                                            <h3 class="banner-title font-weight-bold text-secondary ls-m mb-5 slide-animate" data-animation-options="{&#39;name&#39;: &#39;blurIn&#39;, &#39;delay&#39;: &#39;.4s&#39;, &#39;duration&#39;: &#39;1s&#39;}" style="">
+                                                New In <br>Stuff Goods</h3>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn btn-solid btn-primary slide-animate" data-animation-options="{&#39;name&#39;: &#39;fadeInUpShorter&#39;, &#39;delay&#39;: &#39;.7s&#39;, &#39;duration&#39;: &#39;1s&#39;}" style="">Shop
+                                                now</a>
+                                        </div>
+                                    </div></div><div class="owl-item animated owl-animated-in fadeInUp cloned" style="width: 580px;"><div class="intro-slide2 banner banner-fixed" data-index="2">
+                                        <figure>
+                                            <img src="./donald_files/2.jpg" width="580" height="502" alt="banner">
+                                        </figure>
+                                        <div class="banner-content y-50">
+                                            <div class="slide-animate" data-animation-options="{
+                                                &#39;name&#39;: &#39;fadeInLeftShorter&#39;,
+                                                &#39;delay&#39;: &#39;.2s&#39;
+                                            }" style="animation-duration: 1.2s; animation-delay: 0.2s;">
+                                                <h4 class="banner-subtitle text-uppercase font-weight-bold text-primary mb-1">
+                                                    Up to 50% off</h4>
+                                                <h3 class="banner-title text-dark ls-m mb-6 slide-animate" data-animation-options="{
+                                                    &#39;name&#39;: &#39;fadeInLeftShorter&#39;,
+                                                    &#39;delay&#39;: &#39;.2s&#39;
+                                                }" style="animation-duration: 1.2s; animation-delay: 0.2s;">New Fashion <br>In Store</h3>
+                                                <a class="btn btn-solid btn-primary" href="https://d-themes.com/html/donald/demo5.html#">Shop now</a>
+                                            </div>
+                                        </div>
+                                    </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><i class="d-icon-angle-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="d-icon-angle-right"></i></button></div><div class="owl-dots"><button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot"><span></span></button></div></div>
+                            </div>
+                            <div class="grid-item col-lg-3 col-md-4 col-xs-6 height-x1" style="position: absolute; left: 74.9906%; top: 0px;">
+                                <div class="intro-banner intro-banner1 banner banner-fixed left-banner overlay-dark appear-animate fadeInLeftShorter appear-animation-visible" data-animation-options="{
+                                    &#39;name&#39;: &#39;fadeInLeftShorter&#39;,
+                                    &#39;delay&#39;: &#39;.2s&#39;
+                                }" style="animation-duration: 1.2s;">
+                                    <a href="https://d-themes.com/html/donald/demo5.html#">
+                                        <figure>
+                                            <img src="./donald_files/1(1).jpg" width="280" height="241" alt="banner">
+                                        </figure>
+                                    </a>
+                                    <div class="banner-content y-50">
+                                        <h4 class="banner-subtitle mb-1 text-uppercase font-weight-bold ls-s text-secondary">
+                                            Summer soon</h4>
+                                        <h3 class="banner-title mb-0 ls-m text-white">Swim &amp; Beachwear
+                                            <br>Collection 2020</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-item col-lg-3 col-md-4 col-xs-6 height-x1" style="position: absolute; left: 74.9906%; top: 268.5px;">
+                                <div class="intro-banner intro-banner2 banner banner-fixed left-banner overlay-light appear-animate fadeInLeftShorter appear-animation-visible" data-animation-options="{
+                                    &#39;name&#39;: &#39;fadeInLeftShorter&#39;,
+                                    &#39;delay&#39;: &#39;.2s&#39;
+                                }" style="animation-duration: 1.2s;">
+                                    <a href="https://d-themes.com/html/donald/demo5.html#">
+                                        <figure>
+                                            <img src="./donald_files/2(1).jpg" width="280" height="241" alt="banner">
+                                        </figure>
+                                    </a>
+                                    <div class="banner-content y-50">
+                                        <h3 class="banner-title ls-m text-secondary">New Latest Bag <br>Collection
+                                        </h3>
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn btn-link btn-underline btn-sm mb-1">Shop Now<i class="d-icon-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-item col-lg-6 col-md-4 height-x1" style="position: absolute; left: 0%; top: 537px;">
+                                <div class="intro-banner intro-banner3 banner banner-fixed right-banner overlay-dark appear-animate fadeInUpShorter appear-animation-visible" data-animation-options="{
+                                    &#39;name&#39;: &#39;fadeInUpShorter&#39;,
+                                    &#39;delay&#39;: &#39;.2s&#39;
+                                }" style="animation-duration: 1.2s;">
+                                    <a href="https://d-themes.com/html/donald/demo5.html#">
+                                        <figure>
+                                            <img src="./donald_files/3.jpg" width="580" height="241" alt="banner">
+                                        </figure>
+                                    </a>
+                                    <div class="banner-content y-50 text-right">
+                                        <h4 class="banner-subtitle text-uppercase font-weight-bold ls-m text-primary">Up
+                                            to 20% off</h4>
+                                        <h3 class="banner-title ls-m text-secondary">For Kids Trending<br>Collection
+                                        </h3>
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn btn-link btn-underline btn-sm">Shop Now<i class="d-icon-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-item col-lg-3 col-md-4 col-xs-6 height-x1" style="position: absolute; left: 49.9937%; top: 537px;">
+                                <div class="intro-banner intro-banner4 banner banner-fixed h-100 left-banner overlay-light appear-animate fadeInUpShorter appear-animation-visible" data-animation-options="{
+                                    &#39;name&#39;: &#39;fadeInUpShorter&#39;,
+                                    &#39;delay&#39;: &#39;.2s&#39;
+                                }" style="animation-duration: 1.2s;">
+                                    <figure style="background-color: #feecd4"></figure>
+                                    <div class="banner-content w-100 x-50 y-50 text-center pl-2 pr-2">
+                                        <h3 class="banner-title ls-m text-secondary text-uppercase">Our Brands</h3>
+                                        <p class="mb-0 text-uppercase ls-m">
+                                            <a href="https://d-themes.com/html/donald/demo5.html#">New York</a> - <a href="https://d-themes.com/html/donald/demo5.html#">Paris</a> - <a href="https://d-themes.com/html/donald/demo5.html#">Barcelona</a><br>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#">Milan</a> - <a href="https://d-themes.com/html/donald/demo5.html#">Rome</a> - <a href="https://d-themes.com/html/donald/demo5.html#">London</a> - <a href="https://d-themes.com/html/donald/demo5.html#">Dubai</a><br>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#">Moscow</a> - <a href="https://d-themes.com/html/donald/demo5.html#">Tokyo</a> - <a href="https://d-themes.com/html/donald/demo5.html#">Shanghai</a><br>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#">Mumbai</a> - <a href="https://d-themes.com/html/donald/demo5.html#">Melbourne</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-item col-lg-3 col-md-4 col-xs-6 height-x1" style="position: absolute; left: 74.9906%; top: 537px;">
+                                <div class="intro-banner intro-banner5 banner banner-fixed right-banner overlay-dark appear-animate fadeInUpShorter appear-animation-visible" data-animation-options="{
+                                    &#39;name&#39;: &#39;fadeInUpShorter&#39;,
+                                    &#39;delay&#39;: &#39;.2s&#39;
+                                }" style="animation-duration: 1.2s;">
+                                    <a href="https://d-themes.com/html/donald/demo5.html#">
+                                        <figure>
+                                            <img src="./donald_files/4.jpg" width="280" height="241" alt="banner">
+                                        </figure>
+                                    </a>
+                                    <div class="banner-content y-50 text-right">
+                                        <h4 class="banner-subtitle text-uppercase font-weight-bold ls-s text-primary">
+                                            Only $15</h4>
+                                        <h3 class="banner-title ls-m text-secondary">On Sale <br>This Week’s</h3>
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn btn-link btn-underline btn-sm">Shop Now<i class="d-icon-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-space col-1" style="position: absolute; left: 0%; top: 805.5px;"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mt-10 pt-3 mb-8">
+                    <div class="container">
+                        <h2 class="title title-simple title-center appear-animate fadeIn appear-animation-visible" style="animation-duration: 1.2s;">Popular Categories</h2>
+                        <div class="owl-carousel owl-theme owl-nav-full owl-loaded owl-drag" data-owl-options="{
+                            &#39;nav&#39;: false,
+                            &#39;dots&#39;: true,
+                            &#39;items&#39;: 4,
+                            &#39;loop&#39;: false,
+                            &#39;margin&#39;:  20,
+                            &#39;responsive&#39;: {
+                                &#39;0&#39;: {
+                                    &#39;items&#39;: 1
+                                },
+                                &#39;480&#39;: {
+                                    &#39;items&#39;: 2
+                                },
+                                &#39;768&#39;: {
+                                    &#39;items&#39;: 3
+                                },
+                                &#39;992&#39;: {
+                                    &#39;items&#39;: 4,
+                                    &#39;dots&#39;: true
+                                }
+                            }
+                        }">
+
+
+
+
+                        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1200px;"><div class="owl-item active" style="width: 280px; margin-right: 20px;"><div class="category category-absolute category-light overlay-dark overlay-zoom appear-animate fadeInRightShorter appear-animation-visible" data-animation-options="{
+                                &#39;name&#39;: &#39;fadeInRightShorter&#39;,
+                                &#39;delay&#39;: &#39;.2s&#39;
+                            }" style="animation-duration: 1.2s;">
+                                <a href="https://d-themes.com/html/donald/demo5.html#">
+                                    <figure class="category-media">
+                                        <img src="./donald_files/1(2).jpg" alt="category" width="280" height="245">
+                                    </figure>
+                                </a>
+                                <div class="category-content">
+                                    <h4 class="category-name">Accessories &amp; Jewellery</h4>
+                                    <span class="category-count">
+                                        <span>47</span> Products
+                                    </span>
+                                    <a href="https://d-themes.com/html/donald/demo5.html#" class="btn btn-underline btn-link btn-white">Shop Now</a>
+                                </div>
+                            </div></div><div class="owl-item active" style="width: 280px; margin-right: 20px;"><div class="category category-absolute category-light overlay-dark overlay-zoom appear-animate fadeInRightShorter appear-animation-visible" data-animation-options="{
+                                &#39;name&#39;: &#39;fadeInRightShorter&#39;,
+                                &#39;delay&#39;: &#39;.3s&#39;
+                            }" style="animation-duration: 1.2s;">
+                                <a href="https://d-themes.com/html/donald/demo5.html#">
+                                    <figure class="category-media">
+                                        <img src="./donald_files/2(2).jpg" alt="category" width="280" height="245">
+                                    </figure>
+                                </a>
+                                <div class="category-content">
+                                    <h4 class="category-name">Computer &amp; Electronics</h4>
+                                    <span class="category-count">
+                                        <span>42</span> Products
+                                    </span>
+                                    <a href="https://d-themes.com/html/donald/demo5.html#" class="btn btn-underline btn-link btn-white">Shop Now</a>
+                                </div>
+                            </div></div><div class="owl-item active" style="width: 280px; margin-right: 20px;"><div class="category category-absolute category-light overlay-dark overlay-zoom appear-animate fadeInRightShorter appear-animation-visible" data-animation-options="{
+                                &#39;name&#39;: &#39;fadeInRightShorter&#39;,
+                                &#39;delay&#39;: &#39;.4s&#39;
+                            }" style="animation-duration: 1.2s;">
+                                <a href="https://d-themes.com/html/donald/demo5.html#">
+                                    <figure class="category-media">
+                                        <img src="./donald_files/3(1).jpg" alt="category" width="280" height="245">
+                                    </figure>
+                                </a>
+                                <div class="category-content">
+                                    <h4 class="category-name">Swim &amp; Beachwear</h4>
+                                    <span class="category-count">
+                                        <span>6</span> Products
+                                    </span>
+                                    <a href="https://d-themes.com/html/donald/demo5.html#" class="btn btn-underline btn-link btn-white">Shop Now</a>
+                                </div>
+                            </div></div><div class="owl-item active" style="width: 280px; margin-right: 20px;"><div class="category category-absolute category-light overlay-dark overlay-zoom appear-animate fadeInRightShorter appear-animation-visible" data-animation-options="{
+                                &#39;name&#39;: &#39;fadeInRightShorter&#39;,
+                                &#39;delay&#39;: &#39;.5s&#39;
+                            }" style="animation-duration: 1.2s;">
+                                <a href="https://d-themes.com/html/donald/demo5.html#">
+                                    <figure class="category-media">
+                                        <img src="./donald_files/4(1).jpg" alt="category" width="280" height="245">
+                                    </figure>
+                                </a>
+                                <div class="category-content">
+                                    <h4 class="category-name">Jeans &amp; Shoes</h4>
+                                    <span class="category-count">
+                                        <span>11</span> Products
+                                    </span>
+                                    <a href="https://d-themes.com/html/donald/demo5.html#" class="btn btn-underline btn-link btn-white">Shop Now</a>
+                                </div>
+                            </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><i class="d-icon-angle-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="d-icon-angle-right"></i></button></div><div class="owl-dots disabled"><button role="button" class="owl-dot active"><span></span></button></div></div>
+                    </div>
+                </section>
+
+                <section class="new-arrivals mt-10 pt-3 mb-8 appear-animate fadeIn appear-animation-visible" data-animation-options="{
+                    &#39;name&#39;: &#39;fadeIn&#39;,
+                    &#39;delay&#39;: &#39;.2s&#39;
+                }" style="animation-duration: 1.2s;">
+                    <div class="container">
+                        <h2 class="title title-simple title-center">New Arrivals</h2>
+                        <div class="row">
+                            <div class="col-xl-2 col-lg-3 col-sm-4 col-6 mb-4">
+                                <div class="product product-classic shadow-media">
+                                    <figure class="product-media">
+                                        <a href="https://d-themes.com/html/donald/demo5-product.html">
+                                            <img src="./donald_files/1(3).jpg" alt="product" width="180" height="201">
+                                        </a>
+                                    </figure>
+                                    <div class="product-details">
+                                        <div class="product-cat">
+                                            <a href="https://d-themes.com/html/donald/shop-grid-3col.html">categories</a>
+                                        </div>
+                                        <h3 class="product-name">
+                                            <a href="https://d-themes.com/html/donald/demo5-product.html">Women's Fashion Comfort</a>
+                                        </h3>
+                                        <div class="product-price">
+                                            <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
+                                        </div>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width:100%"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="https://d-themes.com/html/donald/product.html" class="rating-reviews">( 6 reviews )</a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-quickview" title="Quick View"><i class="d-icon-search"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-lg-3 col-sm-4 col-6 mb-4">
+                                <div class="product product-classic shadow-media">
+                                    <figure class="product-media">
+                                        <a href="https://d-themes.com/html/donald/demo5-product.html">
+                                            <img src="./donald_files/2(3).jpg" alt="product" width="180" height="201">
+                                        </a>
+                                        <div class="product-label-group">
+                                            <label class="product-label label-new">New</label>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <div class="product-cat">
+                                            <a href="https://d-themes.com/html/donald/shop-grid-3col.html">categories</a>
+                                        </div>
+                                        <h3 class="product-name">
+                                            <a href="https://d-themes.com/html/donald/demo5-product.html">Water Cooler Reservoir</a>
+                                        </h3>
+                                        <div class="product-price">
+                                            <span class="price">$35.00</span>
+                                        </div>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width:80%"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="https://d-themes.com/html/donald/product.html" class="rating-reviews">( 6 reviews )</a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-quickview" title="Quick View"><i class="d-icon-search"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-lg-3 col-sm-4 col-6 mb-4">
+                                <div class="product product-classic shadow-media">
+                                    <figure class="product-media">
+                                        <a href="https://d-themes.com/html/donald/demo5-product.html">
+                                            <img src="./donald_files/3(2).jpg" alt="product" width="180" height="201">
+                                        </a>
+                                    </figure>
+                                    <div class="product-details">
+                                        <div class="product-cat">
+                                            <a href="https://d-themes.com/html/donald/shop-grid-3col.html">categories</a>
+                                        </div>
+                                        <h3 class="product-name">
+                                            <a href="https://d-themes.com/html/donald/demo5-product.html">Men's Fashion Hood</a>
+                                        </h3>
+                                        <div class="product-price">
+                                            <span class="price">$19.00</span>
+                                        </div>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width:100%"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="https://d-themes.com/html/donald/product.html" class="rating-reviews">( 6 reviews )</a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-quickview" title="Quick View"><i class="d-icon-search"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-lg-3 col-sm-4 col-6 mb-4">
+                                <div class="product product-classic shadow-media">
+                                    <figure class="product-media">
+                                        <a href="https://d-themes.com/html/donald/demo5-product.html">
+                                            <img src="./donald_files/4(2).jpg" alt="product" width="180" height="201">
+                                        </a>
+                                        <div class="product-label-group">
+                                            <label class="product-label label-sale">27% off</label>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <div class="product-cat">
+                                            <a href="https://d-themes.com/html/donald/shop-grid-3col.html">categories</a>
+                                        </div>
+                                        <h3 class="product-name">
+                                            <a href="https://d-themes.com/html/donald/demo5-product.html">Kid's Fashion Shoes</a>
+                                        </h3>
+                                        <div class="product-price">
+                                            <ins class="new-price">$98.00</ins><del class="old-price">$210.00</del>
+                                        </div>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width:40%"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="https://d-themes.com/html/donald/product.html" class="rating-reviews">( 6 reviews )</a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-quickview" title="Quick View"><i class="d-icon-search"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-lg-3 col-sm-4 col-6 mb-4">
+                                <div class="product product-classic shadow-media">
+                                    <figure class="product-media">
+                                        <a href="https://d-themes.com/html/donald/demo5-product.html">
+                                            <img src="./donald_files/5.jpg" alt="product" width="180" height="201">
+                                        </a>
+                                    </figure>
+                                    <div class="product-details">
+                                        <div class="product-cat">
+                                            <a href="https://d-themes.com/html/donald/shop-grid-3col.html">categories</a>
+                                        </div>
+                                        <h3 class="product-name">
+                                            <a href="https://d-themes.com/html/donald/demo5-product.html">Men's Fashion Hood</a>
+                                        </h3>
+                                        <div class="product-price">
+                                            <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
+                                        </div>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width:100%"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="https://d-themes.com/html/donald/product.html" class="rating-reviews">( 6 reviews )</a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-quickview" title="Quick View"><i class="d-icon-search"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-lg-3 col-sm-4 col-6 mb-4">
+                                <div class="product product-classic shadow-media">
+                                    <figure class="product-media">
+                                        <a href="https://d-themes.com/html/donald/demo5-product.html">
+                                            <img src="./donald_files/6.jpg" alt="product" width="180" height="201">
+                                        </a>
+                                        <div class="product-label-group">
+                                            <label class="product-label label-new">New</label>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <div class="product-cat">
+                                            <a href="https://d-themes.com/html/donald/shop-grid-3col.html">categories</a>
+                                        </div>
+                                        <h3 class="product-name">
+                                            <a href="https://d-themes.com/html/donald/demo5-product.html">Flash Disk USB 3.0</a>
+                                        </h3>
+                                        <div class="product-price">
+                                            <span class="price">$35.00</span>
+                                        </div>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width:100%"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="https://d-themes.com/html/donald/product.html" class="rating-reviews">( 6 reviews )</a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-quickview" title="Quick View"><i class="d-icon-search"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-lg-3 col-sm-4 col-6 mb-4">
+                                <div class="product product-classic shadow-media">
+                                    <figure class="product-media">
+                                        <a href="https://d-themes.com/html/donald/demo5-product.html">
+                                            <img src="./donald_files/7.jpg" alt="product" width="180" height="201">
+                                        </a>
+                                    </figure>
+                                    <div class="product-details">
+                                        <div class="product-cat">
+                                            <a href="https://d-themes.com/html/donald/shop-grid-3col.html">categories</a>
+                                        </div>
+                                        <h3 class="product-name">
+                                            <a href="https://d-themes.com/html/donald/demo5-product.html">Women's Fashion Handbag</a>
+                                        </h3>
+                                        <div class="product-price">
+                                            <span class="price">$19.00</span>
+                                        </div>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width:70%"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="https://d-themes.com/html/donald/product.html" class="rating-reviews">( 6 reviews )</a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-quickview" title="Quick View"><i class="d-icon-search"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-lg-3 col-sm-4 col-6 mb-4">
+                                <div class="product product-classic shadow-media">
+                                    <figure class="product-media">
+                                        <a href="https://d-themes.com/html/donald/demo5-product.html">
+                                            <img src="./donald_files/8.jpg" alt="product" width="180" height="201">
+                                        </a>
+                                    </figure>
+                                    <div class="product-details">
+                                        <div class="product-cat">
+                                            <a href="https://d-themes.com/html/donald/shop-grid-3col.html">categories</a>
+                                        </div>
+                                        <h3 class="product-name">
+                                            <a href="https://d-themes.com/html/donald/demo5-product.html">Blue Tea Cup</a>
+                                        </h3>
+                                        <div class="product-price">
+                                            <ins class="new-price">$98.00</ins><del class="old-price">$210.00</del>
+                                        </div>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width:100%"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="https://d-themes.com/html/donald/product.html" class="rating-reviews">( 6 reviews )</a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-quickview" title="Quick View"><i class="d-icon-search"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-lg-3 col-sm-4 col-6 mb-4">
+                                <div class="product product-classic shadow-media">
+                                    <figure class="product-media">
+                                        <a href="https://d-themes.com/html/donald/demo5-product.html">
+                                            <img src="./donald_files/9.jpg" alt="product" width="180" height="201">
+                                        </a>
+                                    </figure>
+                                    <div class="product-details">
+                                        <div class="product-cat">
+                                            <a href="https://d-themes.com/html/donald/shop-grid-3col.html">categories</a>
+                                        </div>
+                                        <h3 class="product-name">
+                                            <a href="https://d-themes.com/html/donald/demo5-product.html">Fashion Hiking Hat</a>
+                                        </h3>
+                                        <div class="product-price">
+                                            <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
+                                        </div>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width:90%"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="https://d-themes.com/html/donald/product.html" class="rating-reviews">( 6 reviews )</a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-quickview" title="Quick View"><i class="d-icon-search"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-lg-3 col-sm-4 col-6 mb-4">
+                                <div class="product product-classic shadow-media">
+                                    <figure class="product-media">
+                                        <a href="https://d-themes.com/html/donald/demo5-product.html">
+                                            <img src="./donald_files/10.jpg" alt="product" width="180" height="201">
+                                        </a>
+                                        <div class="product-label-group">
+                                            <label class="product-label label-new">New</label>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <div class="product-cat">
+                                            <a href="https://d-themes.com/html/donald/shop-grid-3col.html">categories</a>
+                                        </div>
+                                        <h3 class="product-name">
+                                            <a href="https://d-themes.com/html/donald/demo5-product.html">Cavin Fashion Suede Handbag</a>
+                                        </h3>
+                                        <div class="product-price">
+                                            <span class="price">$35.00</span>
+                                        </div>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width:100%"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="https://d-themes.com/html/donald/product.html" class="rating-reviews">( 6 reviews )</a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-quickview" title="Quick View"><i class="d-icon-search"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-lg-3 col-sm-4 col-6 mb-4">
+                                <div class="product product-classic shadow-media">
+                                    <figure class="product-media">
+                                        <a href="https://d-themes.com/html/donald/demo5-product.html">
+                                            <img src="./donald_files/11.jpg" alt="product" width="180" height="201">
+                                        </a>
+                                    </figure>
+                                    <div class="product-details">
+                                        <div class="product-cat">
+                                            <a href="https://d-themes.com/html/donald/shop-grid-3col.html">categories</a>
+                                        </div>
+                                        <h3 class="product-name">
+                                            <a href="https://d-themes.com/html/donald/demo5-product.html">Men's Fashion Suede Belt</a>
+                                        </h3>
+                                        <div class="product-price">
+                                            <span class="price">$19.00</span>
+                                        </div>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width:60%"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="https://d-themes.com/html/donald/product.html" class="rating-reviews">( 6 reviews )</a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-quickview" title="Quick View"><i class="d-icon-search"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-lg-3 col-sm-4 col-6 mb-4">
+                                <div class="product product-classic shadow-media">
+                                    <figure class="product-media">
+                                        <a href="https://d-themes.com/html/donald/demo5-product.html">
+                                            <img src="./donald_files/12.jpg" alt="product" width="180" height="201">
+                                        </a>
+                                    </figure>
+                                    <div class="product-details">
+                                        <div class="product-cat">
+                                            <a href="https://d-themes.com/html/donald/shop-grid-3col.html">categories</a>
+                                        </div>
+                                        <h3 class="product-name">
+                                            <a href="https://d-themes.com/html/donald/demo5-product.html">Black Comfortable Sandals</a>
+                                        </h3>
+                                        <div class="product-price">
+                                            <ins class="new-price">$98.00</ins><del class="old-price">$210.00</del>
+                                        </div>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width:60%"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="https://d-themes.com/html/donald/product.html" class="rating-reviews">( 6 reviews )</a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                            <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-quickview" title="Quick View"><i class="d-icon-search"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="banner banner-cta parallax" data-option="{&#39;offset&#39;: -75}" data-image-src="images/demos/demo5/cta.jpg" style="position: relative; overflow: hidden;"><div class="parallax-background" style="background-image: url(&quot;images/demos/demo5/cta.jpg&quot;); background-size: cover; position: absolute; top: 0px; left: 0px; width: 100%; height: 180%; transform: translate3d(0px, -649.057px, 0px); background-position-x: 50%;"></div>
+                    <div class="container text-center">
+                        <div class="banner-content appear-animate" data-animation-options="{
+                            &#39;name&#39;: &#39;fadeInUpShorter&#39;,
+                            &#39;delay&#39;: &#39;.2s&#39;,
+                            &#39;duration&#39;: &#39;.75s&#39;
+                        }">
+                            <h3 class="banner-title mb-2 text-uppercase ls-m">Our Newsletter</h3>
+                            <p class="ls-s mb-3">It only takes a second to find out about our latest <br>news and
+                                promotions...</p>
+                            <form action="https://d-themes.com/html/donald/demo5.html#" class="input-wrapper input-wrapper-inline mb-5">
+                                <input type="email" class="form-control text-grey bg-white" name="email" id="email" placeholder="Email address here..." required="">
+                                <button class="btn btn-sm btn-primary btn-icon-right" type="submit">subscribe<i class="d-icon-arrow-right"></i></button>
+                            </form>
+                            <div class="social-links">
+                                <a href="https://d-themes.com/html/donald/demo5.html#" class="social-link social-facebook fab fa-facebook-f"></a>
+                                <a href="https://d-themes.com/html/donald/demo5.html#" class="social-link social-twitter fab fa-twitter"></a>
+                                <a href="https://d-themes.com/html/donald/demo5.html#" class="social-link social-linkedin fab fa-linkedin-in"></a>
+                                <a href="https://d-themes.com/html/donald/demo5.html#" class="social-link social-google fab fa-google"></a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mt-10 pt-3 mb-8 appear-animate" data-animation-options="{
+                    &#39;name&#39;: &#39;fadeIn&#39;,
+                    &#39;delay&#39;: &#39;.2s&#39;
+                }">
+                    <div class="container">
+                        <h2 class="title title-simple title-center">Best Selling</h2>
+                        <div class="owl-carousel owl-theme owl-nav-full owl-loaded owl-drag" data-owl-options="{
+                            &#39;items&#39;: 4,
+                            &#39;dots&#39;: true,
+                            &#39;nav&#39;: false,
+                            &#39;loop&#39;: false,
+                            &#39;margin&#39;: 20,
+                            &#39;responsive&#39;: {
+                                &#39;0&#39;: {
+                                    &#39;items&#39;: 2
+                                },
+                                &#39;768&#39;: {
+                                    &#39;items&#39;: 3
+                                },
+                                &#39;992&#39;: {
+                                    &#39;items&#39;: 4,
+                                    &#39;nav&#39;: true,
+                                    &#39;dots&#39;: false
+                                }
+                            }
+                        }">
+
+
+
+
+
+
+                        <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1800px;"><div class="owl-item active" style="width: 280px; margin-right: 20px;"><div class="product product-classic">
+                                <figure class="product-media">
+                                    <a href="https://d-themes.com/html/donald/demo5-product.html">
+                                        <img src="./donald_files/13.jpg" alt="product" width="180" height="201">
+                                    </a>
+                                </figure>
+                                <div class="product-details">
+                                    <div class="product-cat">
+                                        <a href="https://d-themes.com/html/donald/shop-grid-3col.html">categories</a>
+                                    </div>
+                                    <h3 class="product-name">
+                                        <a href="https://d-themes.com/html/donald/demo5-product.html">Water Cooler Reservoir</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="https://d-themes.com/html/donald/product.html" class="rating-reviews">( 6 reviews )</a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-quickview" title="Quick View"><i class="d-icon-search"></i></a>
+                                    </div>
+                                </div>
+                            </div></div><div class="owl-item active" style="width: 280px; margin-right: 20px;"><div class="product product-classic">
+                                <figure class="product-media">
+                                    <a href="https://d-themes.com/html/donald/demo5-product.html">
+                                        <img src="./donald_files/14.jpg" alt="product" width="180" height="201">
+                                    </a>
+                                    <div class="product-label-group">
+                                        <label class="product-label label-new">New</label>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <div class="product-cat">
+                                        <a href="https://d-themes.com/html/donald/shop-grid-3col.html">categories</a>
+                                    </div>
+                                    <h3 class="product-name">
+                                        <a href="https://d-themes.com/html/donald/demo5-product.html">Yellow Overnight Bag</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">$35.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="https://d-themes.com/html/donald/product.html" class="rating-reviews">( 6 reviews )</a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-quickview" title="Quick View"><i class="d-icon-search"></i></a>
+                                    </div>
+                                </div>
+                            </div></div><div class="owl-item active" style="width: 280px; margin-right: 20px;"><div class="product product-classic">
+                                <figure class="product-media">
+                                    <a href="https://d-themes.com/html/donald/demo5-product.html">
+                                        <img src="./donald_files/15.jpg" alt="product" width="180" height="201">
+                                    </a>
+                                </figure>
+                                <div class="product-details">
+                                    <div class="product-cat">
+                                        <a href="https://d-themes.com/html/donald/shop-grid-3col.html">categories</a>
+                                    </div>
+                                    <h3 class="product-name">
+                                        <a href="https://d-themes.com/html/donald/demo5-product.html">Blue Teacup</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">$19.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="https://d-themes.com/html/donald/product.html" class="rating-reviews">( 6 reviews )</a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-quickview" title="Quick View"><i class="d-icon-search"></i></a>
+                                    </div>
+                                </div>
+                            </div></div><div class="owl-item active" style="width: 280px; margin-right: 20px;"><div class="product product-classic">
+                                <figure class="product-media">
+                                    <a href="https://d-themes.com/html/donald/demo5-product.html">
+                                        <img src="./donald_files/16.jpg" alt="product" width="180" height="201">
+                                    </a>
+                                    <div class="product-label-group">
+                                        <label class="product-label label-new">New</label>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <div class="product-cat">
+                                        <a href="https://d-themes.com/html/donald/shop-grid-3col.html">categories</a>
+                                    </div>
+                                    <h3 class="product-name">
+                                        <a href="https://d-themes.com/html/donald/demo5-product.html">Brown Leather Sandals</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <ins class="new-price">$98.00</ins><del class="old-price">$210.00</del>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="https://d-themes.com/html/donald/product.html" class="rating-reviews">( 6 reviews )</a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-quickview" title="Quick View"><i class="d-icon-search"></i></a>
+                                    </div>
+                                </div>
+                            </div></div><div class="owl-item" style="width: 280px; margin-right: 20px;"><div class="product product-classic">
+                                <figure class="product-media">
+                                    <a href="https://d-themes.com/html/donald/demo5-product.html">
+                                        <img src="./donald_files/17.jpg" alt="product" width="180" height="201">
+                                    </a>
+                                </figure>
+                                <div class="product-details">
+                                    <div class="product-cat">
+                                        <a href="https://d-themes.com/html/donald/shop-grid-3col.html">categories</a>
+                                    </div>
+                                    <h3 class="product-name">
+                                        <a href="https://d-themes.com/html/donald/demo5-product.html">Blue Jeans Shoes</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <ins class="new-price">$199.00</ins><del class="old-price">$210.00</del>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="https://d-themes.com/html/donald/product.html" class="rating-reviews">( 6 reviews )</a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-quickview" title="Quick View"><i class="d-icon-search"></i></a>
+                                    </div>
+                                </div>
+                            </div></div><div class="owl-item" style="width: 280px; margin-right: 20px;"><div class="product product-classic">
+                                <figure class="product-media">
+                                    <a href="https://d-themes.com/html/donald/demo5-product.html">
+                                        <img src="./donald_files/18.jpg" alt="product" width="180" height="201">
+                                    </a>
+                                </figure>
+                                <div class="product-details">
+                                    <div class="product-cat">
+                                        <a href="https://d-themes.com/html/donald/shop-grid-3col.html">categories</a>
+                                    </div>
+                                    <h3 class="product-name">
+                                        <a href="https://d-themes.com/html/donald/demo5-product.html">White Leather Shoes</a>
+                                    </h3>
+                                    <div class="product-price">
+                                        <span class="price">$35.00</span>
+                                    </div>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" style="width:100%"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a href="https://d-themes.com/html/donald/product.html" class="rating-reviews">( 6 reviews )</a>
+                                    </div>
+                                    <div class="product-action">
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product btn-cart" data-toggle="modal" data-target="#addCartModal" title="Add to cart">add to cart</a>
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-wishlist" title="Add to wishlist"><i class="d-icon-heart"></i></a>
+                                        <a href="https://d-themes.com/html/donald/demo5.html#" class="btn-product-icon btn-quickview" title="Quick View"><i class="d-icon-search"></i></a>
+                                    </div>
+                                </div>
+                            </div></div></div></div><div class="owl-nav"><button type="button" role="presentation" class="owl-prev disabled"><i class="d-icon-angle-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="d-icon-angle-right"></i></button></div><div class="owl-dots disabled"></div></div>
+                    </div>
+                </section>
+
+                <section class="instagram-section mt-9 pb-2 mb-10 appear-animate">
+                    <div class="container">
+                        <h2 class="title title-simple title-center mb-5">Follow us on instagram</h2>
+                        <div class="row grid" style="position: relative; height: 400px;">
+                            <div class="grid-item col-lg-2 col-sm-4 col-6 height-x1" style="position: absolute; left: 0%; top: 0px;">
+                                <figure class="instagram appear-animate" data-animation-options="{
+                                    &#39;name&#39;: &#39;fadeInLeftShorter&#39;,
+                                    &#39;delay&#39;: &#39;.3s&#39;
+                                }">
+                                    <a href="https://d-themes.com/html/donald/demo5.html#">
+                                        <img src="./donald_files/1(4).jpg" alt="Instagram" width="180" height="180">
+                                    </a>
+                                </figure>
+                            </div>
+                            <div class="grid-item col-lg-2 col-sm-4 col-6 height-x1" style="position: absolute; left: 16.6646%; top: 0px;">
+                                <figure class="instagram appear-animate" data-animation-options="{
+                                    &#39;name&#39;: &#39;fadeInLeftShorter&#39;,
+                                    &#39;delay&#39;: &#39;.2s&#39;
+                                }">
+                                    <a href="https://d-themes.com/html/donald/demo5.html#">
+                                        <img src="./donald_files/2(4).jpg" alt="Instagram" width="180" height="180">
+                                    </a>
+                                </figure>
+                            </div>
+                            <div class="grid-item col-lg-2 col-sm-4 col-6 height-x1" style="position: absolute; left: 33.3292%; top: 0px;">
+                                <figure class="instagram appear-animate" data-animation-options="{
+                                    &#39;name&#39;: &#39;fadeInRightShorter&#39;,
+                                    &#39;delay&#39;: &#39;.2s&#39;
+                                }">
+                                    <a href="https://d-themes.com/html/donald/demo5.html#">
+                                        <img src="./donald_files/3(3).jpg" alt="Instagram" width="180" height="180">
+                                    </a>
+                                </figure>
+                            </div>
+                            <div class="grid-item col-lg-2 col-sm-4 col-6 height-x1" style="position: absolute; left: 49.9937%; top: 0px;">
+                                <figure class="instagram appear-animate" data-animation-options="{
+                                    &#39;name&#39;: &#39;fadeInRightShorter&#39;,
+                                    &#39;delay&#39;: &#39;.3s&#39;
+                                }">
+                                    <a href="https://d-themes.com/html/donald/demo5.html#">
+                                        <img src="./donald_files/4(3).jpg" alt="Instagram" width="180" height="180">
+                                    </a>
+                                </figure>
+                            </div>
+                            <div class="grid-item col-lg-4 col-sm-8 height-x2" style="position: absolute; left: 66.6583%; top: 0px;">
+                                <div class="testimonial-wrapper">
+                                    <h3 class="title title-simple font-secondary text-normal ls-normal mb-5">What they
+                                        say about us</h3>
+                                    <div class="owl-carousel owl-theme appear-animate owl-loaded owl-drag" data-animation-options="{
+                                        &#39;delay&#39;: &#39;.2s&#39;
+                                    }" data-owl-options="{
+                                        &#39;items&#39;: 1,
+                                        &#39;nav&#39;: false,
+                                        &#39;dots&#39;: true,
+                                        &#39;loop&#39;: false
+                                    }">
+
+
+
+                                    <div class="owl-stage-outer"><div class="owl-stage" style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 1140px;"><div class="owl-item active" style="width: 379.987px;"><div class="testimonial testimonial-centered">
+                                            <div class="testimonial-info">
+                                                <figure class="testimonial-author-thumbnail">
+                                                    <img src="./donald_files/4(4).jpg" alt="user" width="40" height="40">
+                                                </figure>
+                                                <blockquote class="comment">“ Lorem ipsum dolor sit amet, consectetuer
+                                                    adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec
+                                                    urna. In nisi neque ”</blockquote>
+                                                <cite>
+                                                    Jenson Gregory
+                                                    <span>Customer</span>
+                                                </cite>
+                                            </div>
+                                        </div></div><div class="owl-item" style="width: 379.987px;"><div class="testimonial testimonial-centered">
+                                            <div class="testimonial-info">
+                                                <figure class="testimonial-author-thumbnail">
+                                                    <img src="./donald_files/4(4).jpg" alt="user" width="40" height="40">
+                                                </figure>
+                                                <blockquote class="comment">“ Lorem ipsum dolor sit amet, consectetuer
+                                                    adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec
+                                                    urna. In nisi neque ”</blockquote>
+                                                <cite>
+                                                    Mary Adams
+                                                    <span>Customer</span>
+                                                </cite>
+                                            </div>
+                                        </div></div><div class="owl-item" style="width: 379.987px;"><div class="testimonial testimonial-centered">
+                                            <div class="testimonial-info">
+                                                <figure class="testimonial-author-thumbnail">
+                                                    <img src="./donald_files/5(1).jpg" alt="user" width="40" height="40">
+                                                </figure>
+                                                <blockquote class="comment">“ Lorem ipsum dolor sit amet, consectetuer
+                                                    adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec
+                                                    urna. In nisi neque ”</blockquote>
+                                                <cite>
+                                                    Owen Hunt
+                                                    <span>Customer</span>
+                                                </cite>
+                                            </div>
+                                        </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><i class="d-icon-angle-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="d-icon-angle-right"></i></button></div><div class="owl-dots"><button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button></div></div>
+                                </div>
+                            </div>
+                            <div class="grid-item col-lg-2 col-sm-4 col-6 height-x1" style="position: absolute; left: 0%; top: 200px;">
+                                <figure class="instagram appear-animate" data-animation-options="{
+                                    &#39;name&#39;: &#39;fadeInLeftShorter&#39;,
+                                    &#39;delay&#39;: &#39;.3s&#39;
+                                }">
+                                    <a href="https://d-themes.com/html/donald/demo5.html#">
+                                        <img src="./donald_files/5(2).jpg" alt="Instagram" width="180" height="180">
+                                    </a>
+                                </figure>
+                            </div>
+                            <div class="grid-item col-lg-2 col-sm-4 col-6 height-x1" style="position: absolute; left: 16.6646%; top: 200px;">
+                                <figure class="instagram appear-animate" data-animation-options="{
+                                    &#39;name&#39;: &#39;fadeInLeftShorter&#39;,
+                                    &#39;delay&#39;: &#39;.2s&#39;
+                                }">
+                                    <a href="https://d-themes.com/html/donald/demo5.html#">
+                                        <img src="./donald_files/6(1).jpg" alt="Instagram" width="180" height="180">
+                                    </a>
+                                </figure>
+                            </div>
+                            <div class="grid-item col-lg-2 col-sm-4 col-6 height-x1" style="position: absolute; left: 33.3292%; top: 200px;">
+                                <figure class="instagram appear-animate" data-animation-options="{
+                                    &#39;name&#39;: &#39;fadeInRightShorter&#39;,
+                                    &#39;delay&#39;: &#39;.2s&#39;
+                                }">
+                                    <a href="https://d-themes.com/html/donald/demo5.html#">
+                                        <img src="./donald_files/7(1).jpg" alt="Instagram" width="180" height="180">
+                                    </a>
+                                </figure>
+                            </div>
+                            <div class="grid-item col-lg-2 col-sm-4 col-6 height-x1" style="position: absolute; left: 49.9937%; top: 200px;">
+                                <figure class="instagram appear-animate" data-animation-options="{
+                                    &#39;name&#39;: &#39;fadeInRightShorter&#39;,
+                                    &#39;delay&#39;: &#39;.3s&#39;
+                                }">
+                                    <a href="https://d-themes.com/html/donald/demo5.html#">
+                                        <img src="./donald_files/8(1).jpg" alt="Instagram" width="180" height="180">
+                                    </a>
+                                </figure>
+                            </div>
+                            <div class="grid-space col-1" style="position: absolute; left: 0%; top: 400px;"></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <!-- End of Main -->
+        <footer class="footer appear-animate">
+            <div class="container">
+                <div class="footer-middle">
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="widget widget-about">
+                                <a href="https://d-themes.com/html/donald/demo5.html" class="logo-footer">
+                                    <img src="./donald_files/logo-footer.png" alt="logo-footer" width="163" height="39">
+                                </a>
+                                <div class="widget-body">
+                                    <p class="ls-s">Praesent dapibus, neque id cursus ucibus, <br>tortor neque egestas
+                                        augue, <br>eu vulputate magna eros eu erat.</p>
+                                    <a href="https://d-themes.com/html/donald/demo5.html#">Donald@example.com</a>
+                                </div>
+                            </div>
+                            <!-- End of Widget -->
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="widget ml-lg-4">
+                                <h4 class="widget-title">About Us</h4>
+                                <ul class="widget-body">
+                                    <li><a href="https://d-themes.com/html/donald/demo5.html#">About Us</a></li>
+                                    <li><a href="https://d-themes.com/html/donald/demo5.html#">Order History</a></li>
+                                    <li><a href="https://d-themes.com/html/donald/demo5.html#">Returns</a></li>
+                                    <li><a href="https://d-themes.com/html/donald/demo5.html#">Custom Service</a></li>
+                                    <li><a href="https://d-themes.com/html/donald/demo5.html#">Terms &amp; Condition</a></li>
+                                </ul>
+                            </div>
+                            <!-- End of Widget -->
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="widget ml-lg-4">
+                                <h4 class="widget-title">Customer Service</h4>
+                                <ul class="widget-body">
+                                    <li><a href="https://d-themes.com/html/donald/demo5.html#">Payment Methods</a></li>
+                                    <li><a href="https://d-themes.com/html/donald/demo5.html#">Money-back Guarantee!</a></li>
+                                    <li><a href="https://d-themes.com/html/donald/demo5.html#">Returns</a></li>
+                                    <li><a href="https://d-themes.com/html/donald/demo5.html#">Shipping</a></li>
+                                    <li><a href="https://d-themes.com/html/donald/demo5.html#">Terms and Conditions</a></li>
+                                </ul>
+                            </div>
+                            <!-- End of Widget -->
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="widget ml-lg-4">
+                                <h4 class="widget-title">My Account</h4>
+                                <ul class="widget-body">
+                                    <li><a href="https://d-themes.com/html/donald/demo5.html#">Sign in</a></li>
+                                    <li><a href="https://d-themes.com/html/donald/demo5.html#">View Cart</a></li>
+                                    <li><a href="https://d-themes.com/html/donald/demo5.html#">My Wishlist</a></li>
+                                    <li><a href="https://d-themes.com/html/donald/demo5.html#">Track My Order</a></li>
+                                    <li><a href="https://d-themes.com/html/donald/demo5.html#">Help</a></li>
+                                </ul>
+                            </div>
+                            <!-- End of Widget -->
+                        </div>
+                    </div>
+                </div>
+                <!-- End of FooterMiddle -->
+                <div class="footer-bottom">
+                    <div class="footer-left">
+                        <figure class="payment">
+                            <img src="./donald_files/payment.png" alt="payment" width="159" height="29">
+                        </figure>
+                    </div>
+                    <div class="footer-center">
+                        <p class="copyright">Donald eCommerce © 2020. All Rights Reserved</p>
+                    </div>
+                    <div class="footer-right">
+                        <div class="social-links">
+                            <a href="https://d-themes.com/html/donald/demo5.html#" class="social-link social-facebook fab fa-facebook-f"></a>
+                            <a href="https://d-themes.com/html/donald/demo5.html#" class="social-link social-twitter fab fa-twitter"></a>
+                            <a href="https://d-themes.com/html/donald/demo5.html#" class="social-link social-linkedin fab fa-linkedin-in"></a>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of FooterBottom -->
+            </div>
+        </footer>
+        <!-- End of Footer -->
+    </div>
+
+    <!-- Sticky Footer -->
+    <div class="sticky-footer sticky-content fix-bottom" style="">
+        <a href="https://d-themes.com/html/donald/demo5.html" class="sticky-link active">
+            <i class="d-icon-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="https://d-themes.com/html/donald/demo5-shop.html" class="sticky-link">
+            <i class="d-icon-volume"></i>
+            <span>Categories</span>
+        </a>
+        <a href="https://d-themes.com/html/donald/wishlist.html" class="sticky-link">
+            <i class="d-icon-heart"></i>
+            <span>Wishlist</span>
+        </a>
+        <a href="https://d-themes.com/html/donald/account.html" class="sticky-link">
+            <i class="d-icon-user"></i>
+            <span>Account</span>
+        </a>
+        <div class="dropdown cart-dropdown dir-up">
+            <a href="https://d-themes.com/html/donald/cart.html" class="sticky-link cart-toggle">
+                <i class="d-icon-bag"></i>
+                <span>Cart</span>
+            </a>
+            <!-- End of Cart Toggle -->
+            <div class="dropdown-box">
+                <div class="product product-cart-header">
+                    <span class="product-cart-counts">2 items</span>
+                    <span><a href="https://d-themes.com/html/donald/cart.html">View cart</a></span>
+                </div>
+                <div class="products scrollable">
+                    <div class="product product-cart">
+                        <div class="product-detail">
+                            <a href="https://d-themes.com/html/donald/product.html" class="product-name">Solid Pattern In Fashion Summer Dress</a>
+                            <div class="price-box">
+                                <span class="product-quantity">1</span>
+                                <span class="product-price">$129.00</span>
+                            </div>
+                        </div>
+                        <figure class="product-media">
+                            <a href="https://d-themes.com/html/donald/demo5.html#">
+                                <img src="./donald_files/product-1.jpg" alt="product" width="90" height="90">
+                            </a>
+                            <button class="btn btn-link btn-close">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </figure>
+                    </div>
+                    <!-- End of Cart Product -->
+                    <div class="product product-cart">
+                        <div class="product-detail">
+                            <a href="https://d-themes.com/html/donald/product.html" class="product-name">Mackintosh Poket Backpack</a>
+                            <div class="price-box">
+                                <span class="product-quantity">1</span>
+                                <span class="product-price">$98.00</span>
+                            </div>
+                        </div>
+                        <figure class="product-media">
+                            <a href="https://d-themes.com/html/donald/demo5.html#">
+                                <img src="./donald_files/product-2.jpg" alt="product" width="90" height="90">
+                            </a>
+                            <button class="btn btn-link btn-close">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </figure>
+                    </div>
+                    <!-- End of Cart Product -->
+                </div>
+                <!-- End of Products  -->
+                <div class="cart-total">
+                    <label>Subtotal:</label>
+                    <span class="price">$42.00</span>
+                </div>
+                <!-- End of Cart Total -->
+                <div class="cart-action">
+                    <a href="https://d-themes.com/html/donald/checkout.html" class="btn btn-dark"><span>Checkout</span></a>
+                </div>
+                <!-- End of Cart Action -->
+            </div>
+            <!-- End of Dropdown Box -->
+        </div>
+    </div>
+
+    <!-- Scroll Top -->
+    <a id="scroll-top" href="https://d-themes.com/html/donald/demo5.html#top" title="Top" role="button" class="scroll-top"><i class="d-icon-angle-up"></i></a>
+
+    <!-- MobileMenu -->
+    <div class="mobile-menu-wrapper">
+        <div class="mobile-menu-overlay">
+        </div>
+        <!-- End of Overlay -->
+        <a class="mobile-menu-close" href="https://d-themes.com/html/donald/demo5.html#"><i class="d-icon-times"></i></a>
+        <!-- End of CloseButton -->
+        <div class="mobile-menu-container scrollable">
+            <form action="https://d-themes.com/html/donald/demo5.html#" class="input-wrapper">
+                <input type="text" class="form-control" name="search" autocomplete="off" placeholder="Search your keyword..." required="">
+                <button class="btn btn-search" type="submit">
+                    <i class="d-icon-search"></i>
+                </button>
+            </form>
+            <!-- End of Search Form -->
+
+            <ul class="mobile-menu mmenu-anim">
+                <li><a href="https://d-themes.com/html/donald/demo5-shop.html" class="menu-title">Browse Our Categories</a></li>
+                <li>
+                    <a href="https://d-themes.com/html/donald/demo5-shop.html"><i class="d-icon-camera1"></i>Electronics</a>
+                </li>
+                <li>
+                    <a href="https://d-themes.com/html/donald/demo5-shop.html"><i class="d-icon-officebag"></i>Backpacks &amp;
+                        Fashion bags</a>
+                </li>
+                <li>
+                    <a href="https://d-themes.com/html/donald/demo5-shop.html"><i class="d-icon-gamepad1"></i>Gaming &amp;
+                        Accessories
+                    </a>
+                </li>
+                <li>
+                    <a href="https://d-themes.com/html/donald/demo5-shop.html">
+                        <i class="d-icon-t-shirt1"></i>Travel &amp; Clothing</a>
+                </li>
+                <li>
+                    <a href="https://d-themes.com/html/donald/demo5-shop.html"><i class="d-icon-desktop"></i>Computer
+                    </a>
+                </li>
+                <li>
+                    <a href="https://d-themes.com/html/donald/demo5-shop.html"><i class="d-icon-cook"></i>Home &amp; Kitchen</a>
+                </li>
+                <li><a href="https://d-themes.com/html/donald/demo5-shop.html" class="menu-title">Today Coupon Deals</a>
+                </li>
+                <li>
+                    <a href="https://d-themes.com/html/donald/demo5-shop.html">
+                        <i class="d-icon-card"></i>Backpacks &amp; Fashion bags
+                    </a>
+                </li>
+                <li>
+                    <a href="https://d-themes.com/html/donald/demo5-shop.html">
+                        <i class="d-icon-card"></i>Daily Deals
+                    </a>
+                </li>
+            </ul>
+            <!-- End of MobileMenu -->
+        </div>
+    </div>
+    <!-- Plugins JS File -->
+    <script src="./donald_files/jquery.min.js.download"></script>
+    <script src="./donald_files/parallax.min.js.download"></script>
+    <script src="./donald_files/jquery.elevatezoom.min.js.download"></script>
+    <script src="./donald_files/jquery.magnific-popup.min.js.download"></script>
+
+    <script src="./donald_files/owl.carousel.min.js.download"></script>
+    <script src="./donald_files/imagesloaded.pkgd.min.js.download"></script>
+    <script src="./donald_files/isotope.pkgd.min.js.download"></script>
+    <!-- Main JS File -->
+    <script src="./donald_files/main.js.download"></script>
+
+
+</body>
+</html>
